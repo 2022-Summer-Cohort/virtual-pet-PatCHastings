@@ -28,7 +28,7 @@ public class VirtualPetApplication {
         boolean quit = false;
         //boolean isAlive = true;
 
-        System.out.println("Welcome to Virtual Pet Andventure! Enter the name of your new pet:");
+        System.out.println("Welcome to Virtual Pet Souls! Enter the name of your new pet:");
         String petName = input.nextLine();
         VirtualPet pet1 = new VirtualPet(petName, 0, 0, 0, true);
 

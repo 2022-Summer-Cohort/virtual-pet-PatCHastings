@@ -24,7 +24,7 @@ public class VirtualPetTest {
         underTest.feed();
         //Assertion
         assertEquals(- 5, underTest.getHungerLvl());
-        assertEquals(+1, underTest.getBoredomLvl());
+        assertEquals(+3, underTest.getBoredomLvl());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class VirtualPetTest {
         underTest.water();
         //Assertion
         assertEquals(- 5, underTest.getThirstLvl());
-        assertEquals(+1, underTest.getBoredomLvl());
+        assertEquals(+3, underTest.getBoredomLvl());
     }
 
     @Test
@@ -46,8 +46,8 @@ public class VirtualPetTest {
         underTest.play();
         //Assertion
         assertEquals(- 5, underTest.getBoredomLvl());
-        assertEquals(+3, underTest.getHungerLvl());
-        assertEquals(+3, underTest.getThirstLvl());
+        assertEquals(+4, underTest.getHungerLvl());
+        assertEquals(+4, underTest.getThirstLvl());
     }
 
     @Test

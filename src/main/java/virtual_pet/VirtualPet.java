@@ -70,18 +70,18 @@ public class VirtualPet {
 
     public void feed() {
         hungerLvl = hungerLvl - 5;
-        boredomLvl = boredomLvl +1;
+        boredomLvl = boredomLvl +3;
     }
 
     public void water() {
         thirstLvl = thirstLvl - 5;
-        boredomLvl = boredomLvl +1;
+        boredomLvl = boredomLvl +3;
     }
 
     public void play() {
         boredomLvl = boredomLvl - 5;
-        hungerLvl = hungerLvl +3;
-        thirstLvl = thirstLvl +3;
+        hungerLvl = hungerLvl +4;
+        thirstLvl = thirstLvl +4;
     }
 
     public void isAlive() {
@@ -112,6 +112,21 @@ public class VirtualPet {
             }
             if (hungerLvl > 20) {
                 System.out.println(petName + " just died from starvation... GAME OVER..");
+                isAlive = false;
+            }
+
+            if (thirstLvl >= 13) {
+                System.out.println(petName + " is dehydrated... give it some water ASAP!");
+            }
+            if (thirstLvl > 18) {
+                System.out.println(petName + " just died of thirst, and turned into a skeleton..");
+            }
+
+            if (boredomLvl > 15) {
+                System.out.println(petName + " is real bored. Be careful; it may run away from home soon..");
+            }
+            if (boredomLvl >= 18) {
+                System.out.println(petName + " has left to find a new master and will never return..");
                 isAlive = false;
             }
 
