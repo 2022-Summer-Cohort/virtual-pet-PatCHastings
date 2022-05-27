@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class VirtualPetTest {
+public class VirtualPetTest {with t
 
     @Test
     public void shouldGetName() {
