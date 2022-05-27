@@ -37,10 +37,10 @@ public class VirtualPet {
     public int getBoredomLvl() {
         return boredomLvl;
     }
-
     public boolean getIsAlive() {
         return isAlive;
     }
+
 
     //setters
     public void setPetName(String petName) {
@@ -80,8 +80,8 @@ public class VirtualPet {
 
     public void play() {
         boredomLvl = boredomLvl - 5;
-        hungerLvl = hungerLvl +1;
-        thirstLvl = thirstLvl +1;
+        hungerLvl = hungerLvl +3;
+        thirstLvl = thirstLvl +3;
     }
 
     public void isAlive() {

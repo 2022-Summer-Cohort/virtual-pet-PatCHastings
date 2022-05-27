@@ -12,6 +12,7 @@ public class VirtualPetApplication {
         newGame.gameLoop();
 
         System.out.println("==YOU DIED==");
+        newGame.gameLoop();
 
 
     }

@@ -46,8 +46,8 @@ public class VirtualPetTest {
         underTest.play();
         //Assertion
         assertEquals(- 5, underTest.getBoredomLvl());
-        assertEquals(+1, underTest.getHungerLvl());
-        assertEquals(+1, underTest.getThirstLvl());
+        assertEquals(+3, underTest.getHungerLvl());
+        assertEquals(+3, underTest.getThirstLvl());
     }
 
     @Test
