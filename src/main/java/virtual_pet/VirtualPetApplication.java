@@ -12,6 +12,10 @@ public class VirtualPetApplication {
         newGame.gameLoop();
 
         System.out.println("==YOU DIED==");
+        System.out.println("___credits___");
+        System.out.println(" Director & lead game designer: Patrick Hastings ");
+        System.out.println("");
+        System.out.println("(new game: affirmative.)");
         newGame.gameLoop();
 
 
