@@ -110,7 +110,7 @@ public class VirtualPet {
             if (hungerLvl >= 18) {
                 System.out.println(petName + " is starving.. You better feed it..");
             }
-            else if (hungerLvl > 20) {
+            if (hungerLvl > 20) {
                 System.out.println(petName + " just died from starvation... GAME OVER..");
                 isAlive = false;
             }
@@ -125,7 +125,7 @@ public class VirtualPet {
         hungerLvl = hungerLvl + 2;
         thirstLvl = thirstLvl + 2;
         boredomLvl = boredomLvl + 2;
-        System.out.println(petName + "'s " + "Hunger: " + hungerLvl + " Thirst: " + thirstLvl + " boredom: " + boredomLvl);
+        //System.out.println(petName + "'s " + "Hunger: " + hungerLvl + " Thirst: " + thirstLvl + " boredom: " + boredomLvl);
     }
 
     //Test method

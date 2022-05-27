@@ -11,7 +11,7 @@ public class VirtualPetApplication {
     // Call gameLoop method
         newGame.gameLoop();
 
-        System.out.println("exited the loop");
+        System.out.println("==YOU DIED==");
 
 
     }
@@ -21,13 +21,13 @@ public class VirtualPetApplication {
 
         Scanner input = new Scanner(System.in);
         boolean quit = false;
-        boolean isAlive = true;
+        //boolean isAlive = true;
 
         System.out.println("Welcome to Virtual Pet Andventure! Enter the name of your new pet:");
         String petName = input.nextLine();
         VirtualPet pet1 = new VirtualPet(petName, 0, 0, 0, true);
 
-        while (isAlive == true) {
+        while (pet1.getIsAlive() == true) {
             System.out.println("What do you want to do with " + petName + "?" + " (type: feed | water | play)");
             String prompt = input.nextLine();
 
@@ -45,7 +45,7 @@ public class VirtualPetApplication {
                 pet1.tick();
             }  // maybe create another else if status reaches certain levels to
             else {
-                isAlive = false;
+                boolean isAlive = false;
             }
 
         }
