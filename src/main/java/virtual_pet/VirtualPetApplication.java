@@ -13,21 +13,37 @@ public class VirtualPetApplication {
         // create method to create virtual pet to add to shelter
         VirtualPetShelter allIn = new VirtualPetShelter();
 
-        System.out.println("add a pet to your shelter");
-        String name =input.nextLine();
-        System.out.println(allIn.getAllNames());
 
 
         //Interact with a VirtualPet object in this method
     VirtualPetApplication newGame = new VirtualPetApplication();
     // Call gameLoop method
-        newGame.gameLoop();
+
+        System.out.println("Welcome! Enter: " + 1 + " for VirtualPet's Souls. " + 2 + " to enter your VirtualPet's Shelter.");
+        int gameChoice = input.nextInt();
+        if (gameChoice == 1) {
+            newGame.gameLoop();
+        } else if (gameChoice == 2) {
+            newGame.gameLoopShelter();
+        } else {
+            newGame.gameLoop();
+        }
+
 
         System.out.println("==YOU DIED==");
         System.out.println("___credits___");
         System.out.println(" Director & lead game designer: Patrick Hastings ");
         System.out.println("");
         System.out.println("(new game+: affirmative.)");
+        System.out.println("Welcome! Enter: " + 1 + " for VirtualPet's Souls. " + 2 + " to enter your VirtualPet's Shelter.");
+        int gameChoice2 = input.nextInt();
+        if (gameChoice2 == 1) {
+            newGame.gameLoop();
+        } else if (gameChoice2 == 2) {
+            newGame.gameLoopShelter();
+        } else {
+            newGame.gameLoop();
+        }
         newGame.gameLoop();
 
 
@@ -66,6 +82,34 @@ public class VirtualPetApplication {
             }
 
         }
+
+    }
+
+    public void gameLoopShelter() {
+        System.out.println("you are in the shelter");
+        System.out.println("add a pet to your shelter");
+
+        Scanner input = new Scanner(System.in);
+        String name =input.nextLine();
+
+        ArrayList<VirtualPet> petS = new ArrayList<>();
+        petS.add(new VirtualPet(name, 0, 0, 0, true));
+
+
+        boolean quitGame = false;
+        while (!quitGame) {
+            System.out.println("what do you want to do? 1: Add a Pet to the Shelter 2: 3:");
+            int prompt = input.nextInt();
+            input.nextLine();
+
+            if (prompt == 1) {
+
+            }
+
+
+
+        }
+
 
     }
 
