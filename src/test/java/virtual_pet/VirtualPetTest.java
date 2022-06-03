@@ -3,23 +3,24 @@ package virtual_pet;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class VirtualPetTest {
 
     @Test
     public void shouldGetName() {
         //Assignment
-        VirtualPet underTest = new VirtualPet("Charizard", 0, 0, 0, true);
+        VirtualPet underTest = new VirtualPet("test", 0, 0, 0, true);
         //Action
         underTest.petsName();
         //Assertion
-        assertEquals("Charizard", underTest.getPetName());
+        assertEquals("test", underTest.getPetName());
     }
 
     @Test
-    public void shouldReduceHungryBy20() {
+    public void shouldReduceHungry() {
         //Assignment
-        VirtualPet underTest = new VirtualPet("Charizard", 0, 0, 0, true);
+        VirtualPet underTest = new VirtualPet("test", 0, 0, 0, true);
         //Action
         underTest.feed();
         //Assertion
@@ -28,9 +29,9 @@ public class VirtualPetTest {
     }
 
     @Test
-    public void shouldReduceThirstyBy20IncreaseBored2() {
+    public void shouldReduceThirstyIncreaseBored() {
         //Assignment
-        VirtualPet underTest = new VirtualPet("Charizard", 0, 0, 0, true);
+        VirtualPet underTest = new VirtualPet("test", 0, 0, 0, true);
         //Action
         underTest.water();
         //Assertion
@@ -39,9 +40,9 @@ public class VirtualPetTest {
     }
 
     @Test
-    public void shouldReduceBoredomBy20IncreaseHungry5Thirsty5() {
+    public void shouldReduceBoredomIncreaseHungryThirsty() {
         //Assignment
-        VirtualPet underTest = new VirtualPet("Charizard", 0, 0, 0, true);
+        VirtualPet underTest = new VirtualPet("test", 0, 0, 0, true);
         //Action
         underTest.play();
         //Assertion
@@ -51,9 +52,9 @@ public class VirtualPetTest {
     }
 
     @Test
-    public void tickShouldIncreaseStatsBy2AndPrintStatus() {
+    public void tickShouldIncreaseStats() {
         //Assignment
-        VirtualPet underTest = new VirtualPet("Charizard", 0, 0, 0, true);
+        VirtualPet underTest = new VirtualPet("test", 0, 0, 0, true);
         //Action
         underTest.tick();
         //Assertion
@@ -62,6 +63,27 @@ public class VirtualPetTest {
         assertEquals(+2, underTest.getBoredomLvl());
 
     }
+
+    // *** VirtualPetShelter tests ***
+    @Test
+    public void shouldGetpetShelter() {
+        //Assignment
+        VirtualPetShelter underTest = new VirtualPetShelter();
+        //Action
+        underTest.getPetShelter();
+        VirtualPetShelter petShelter = new VirtualPetShelter();
+    }
+
+    //shelterPopulation
+    @Test
+    public void petIsAdmittedToVirtualPetShelter() {
+        VirtualPetShelter underTest = new VirtualPetShelter();
+        VirtualPet TestPet = new VirtualPet("test", 0,0,0,true);
+        underTest.addPetToShelter(TestPet);
+        assertEquals(4, underTest.shelterPopulation());
+        assertTrue(underTest.getPetShelter().add(new VirtualPet("test", 0,0,0, true)));
+    }
+
 
 }
 

@@ -1,14 +1,11 @@
 package virtual_pet;
 
-import java.sql.SQLOutput;
-
 public class VirtualPet {
 
     private String petName;
     private int hungerLvl;
     private int thirstLvl;
     private int boredomLvl;
-
     private boolean isAlive;
 
     //constructor
@@ -120,6 +117,7 @@ public class VirtualPet {
             }
             if (thirstLvl > 18) {
                 System.out.println(petName + " just died of thirst, and turned into a skeleton..");
+                isAlive = false;
             }
 
             if (boredomLvl > 15) {

@@ -1,12 +1,24 @@
 package virtual_pet;
-
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class VirtualPetApplication {
 
     public static void main(String[] args) {
-        //Interact with a VirtualPet object in this method
 
+        //VirtualPetShelter
+        Scanner input= new Scanner(System.in);
+
+
+        // create method to create virtual pet to add to shelter
+        VirtualPetShelter allIn = new VirtualPetShelter();
+
+        System.out.println("add a pet to your shelter");
+        String name =input.nextLine();
+        System.out.println(allIn.getAllNames());
+
+
+        //Interact with a VirtualPet object in this method
     VirtualPetApplication newGame = new VirtualPetApplication();
     // Call gameLoop method
         newGame.gameLoop();
@@ -15,7 +27,7 @@ public class VirtualPetApplication {
         System.out.println("___credits___");
         System.out.println(" Director & lead game designer: Patrick Hastings ");
         System.out.println("");
-        System.out.println("(new game: affirmative.)");
+        System.out.println("(new game+: affirmative.)");
         newGame.gameLoop();
 
 
@@ -25,12 +37,12 @@ public class VirtualPetApplication {
     public void gameLoop() {
 
         Scanner input = new Scanner(System.in);
-        boolean quit = false;
-        //boolean isAlive = true;
 
+        //boolean isAlive = true;
         System.out.println("Welcome to VirtualPet's Souls! Enter the name of your new pet:");
         String petName = input.nextLine();
         VirtualPet pet1 = new VirtualPet(petName, 0, 0, 0, true);
+
 
         while (pet1.getIsAlive() == true) {
             System.out.println("What do you want to do with " + petName + "?" + " (type: feed | water | play)");
@@ -56,6 +68,7 @@ public class VirtualPetApplication {
         }
 
     }
+
 }
 
 
