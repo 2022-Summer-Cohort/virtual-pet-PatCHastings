@@ -3,21 +3,22 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class VirtualPetApplication {
+    private VirtualPetShelter petShelter; //instantiated class
 
+    public VirtualPetApplication() {
+        this.petShelter = petShelter;
+    }
     public static void main(String[] args) {
 
         //VirtualPetShelter
         Scanner input= new Scanner(System.in);
 
-
         // create method to create virtual pet to add to shelter
-        VirtualPetShelter allIn = new VirtualPetShelter();
-
-
+        //VirtualPetShelter allIn = new VirtualPetShelter();
 
         //Interact with a VirtualPet object in this method
-    VirtualPetApplication newGame = new VirtualPetApplication();
-    // Call gameLoop method
+        VirtualPetApplication newGame = new VirtualPetApplication();
+        // Call gameLoop method
 
         System.out.println("Welcome! Enter: " + 1 + " for VirtualPet's Souls. " + 2 + " to enter your VirtualPet's Shelter.");
         int gameChoice = input.nextInt();
@@ -29,12 +30,12 @@ public class VirtualPetApplication {
             newGame.gameLoop();
         }
 
-
         System.out.println("==YOU DIED==");
         System.out.println("___credits___");
         System.out.println(" Director & lead game designer: Patrick Hastings ");
         System.out.println("");
         System.out.println("(new game+: affirmative.)");
+
         System.out.println("Welcome! Enter: " + 1 + " for VirtualPet's Souls. " + 2 + " to enter your VirtualPet's Shelter.");
         int gameChoice2 = input.nextInt();
         if (gameChoice2 == 1) {
@@ -46,9 +47,8 @@ public class VirtualPetApplication {
         }
         newGame.gameLoop();
 
-
     }
-
+    // PET SHELTER GAMELOOP
 
     public void gameLoop() {
 
@@ -84,28 +84,50 @@ public class VirtualPetApplication {
         }
 
     }
+    // VIRTUAL PET SHELTER GAMELOOP
 
     public void gameLoopShelter() {
         System.out.println("you are in the shelter");
-        System.out.println("add a pet to your shelter");
 
         Scanner input = new Scanner(System.in);
-        String name =input.nextLine();
-
-        ArrayList<VirtualPet> petS = new ArrayList<>();
-        petS.add(new VirtualPet(name, 0, 0, 0, true));
 
 
+    VirtualPetShelter petShelter = new VirtualPetShelter(); // constructor
         boolean quitGame = false;
         while (!quitGame) {
-            System.out.println("what do you want to do? 1: Add a Pet to the Shelter 2: 3:");
+            System.out.println("what do you want to do? 1: Add a Pet to the Shelter 2: Feed all pets 3: Water all pets 4: Play with all pets");
             int prompt = input.nextInt();
             input.nextLine();
 
             if (prompt == 1) {
+                System.out.println("enter the new pet's name:");
+                String name =input.nextLine();
+                petShelter.addPetToShelter(name);
+                petShelter.showPetsStatus();
+                petShelter.shelterPopulation();
+                petShelter.tickAll();
 
+            } else if (prompt == 2) {
+                petShelter.feedPets();
+                petShelter.showPetsStatus();
+                petShelter.shelterPopulation();
+                petShelter.tickAll();
+
+            } else if (prompt == 3) {
+                petShelter.waterPets();
+                petShelter.showPetsStatus();
+                petShelter.shelterPopulation();
+                petShelter.tickAll();
+
+            } else if (prompt == 4) {
+                petShelter.playPets();
+                petShelter.showPetsStatus();
+                petShelter.shelterPopulation();
+                petShelter.tickAll();
+
+            } else {
+                quitGame = true;
             }
-
 
 
         }

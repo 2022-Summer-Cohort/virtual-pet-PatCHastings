@@ -11,10 +11,10 @@ public class VirtualPet {
     //constructor
     public VirtualPet(String name, int hungry, int thirsty, int bored, boolean isAlive) {
     this.petName = name;
-    this.hungerLvl = 0;
-    this.thirstLvl = 0;
-    this.boredomLvl = 0;
-    this.isAlive = true;
+    this.hungerLvl = hungry;
+    this.thirstLvl = thirsty;
+    this.boredomLvl = bored;
+    this.isAlive = isAlive;
 
     }
 
