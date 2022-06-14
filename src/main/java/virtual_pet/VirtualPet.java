@@ -68,17 +68,26 @@ public class VirtualPet {
     public void feed() {
         hungerLvl = hungerLvl - 5;
         boredomLvl = boredomLvl +3;
+        if (hungerLvl < 0) {
+            hungerLvl = 0;
+        }
     }
 
     public void water() {
         thirstLvl = thirstLvl - 5;
         boredomLvl = boredomLvl +3;
+        if (thirstLvl < 0) {
+            this.thirstLvl = 0;
+        }
     }
 
     public void play() {
         boredomLvl = boredomLvl - 5;
         hungerLvl = hungerLvl +4;
         thirstLvl = thirstLvl +4;
+        if (boredomLvl < 0) {
+            this.boredomLvl = 0;
+        }
     }
 
     public void isAlive() {
@@ -108,7 +117,7 @@ public class VirtualPet {
                 System.out.println(petName + " is starving.. You better feed it..");
             }
             if (hungerLvl > 20) {
-                System.out.println(petName + " just died from starvation... GAME OVER..");
+                System.out.println(petName + " just died from starvation... But its remains need buried..");
                 isAlive = false;
             }
 
@@ -116,7 +125,7 @@ public class VirtualPet {
                 System.out.println(petName + " is dehydrated... give it some water ASAP!");
             }
             if (thirstLvl > 18) {
-                System.out.println(petName + " just died of thirst, and turned into a skeleton..");
+                System.out.println(petName + " just died of thirst... But its carcass is decaying..");
                 isAlive = false;
             }
 
@@ -124,14 +133,11 @@ public class VirtualPet {
                 System.out.println(petName + " is real bored. Be careful; it may run away from home soon..");
             }
             if (boredomLvl >= 18) {
-                System.out.println(petName + " has left to find a new master and will never return..");
+                System.out.println(petName + " just died of boredom.., But it needs a proper funeral..");
                 isAlive = false;
             }
 
-
     }
-
-
 
     // Tick
     public void tick() {

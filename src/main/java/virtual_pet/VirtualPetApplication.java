@@ -22,6 +22,7 @@ public class VirtualPetApplication {
 
         System.out.println("Welcome! Enter: " + 1 + " for VirtualPet's Souls. " + 2 + " to enter your VirtualPet's Shelter.");
         int gameChoice = input.nextInt();
+        input.nextLine();
         if (gameChoice == 1) {
             newGame.gameLoop();
         } else if (gameChoice == 2) {
@@ -38,6 +39,7 @@ public class VirtualPetApplication {
 
         System.out.println("Welcome! Enter: " + 1 + " for VirtualPet's Souls. " + 2 + " to enter your VirtualPet's Shelter.");
         int gameChoice2 = input.nextInt();
+        input.nextLine();
         if (gameChoice2 == 1) {
             newGame.gameLoop();
         } else if (gameChoice2 == 2) {
@@ -60,7 +62,7 @@ public class VirtualPetApplication {
         VirtualPet pet1 = new VirtualPet(petName, 0, 0, 0, true);
 
 
-        while (pet1.getIsAlive() == true) {
+        while (pet1.getIsAlive()) {
             System.out.println("What do you want to do with " + petName + "?" + " (type: feed | water | play)");
             String prompt = input.nextLine();
 
@@ -76,7 +78,7 @@ public class VirtualPetApplication {
                 pet1.play();
                 pet1.status();
                 pet1.tick();
-            }  // maybe create another else if status reaches certain levels to
+            }
             else {
                 boolean isAlive = false;
             }
@@ -84,7 +86,7 @@ public class VirtualPetApplication {
         }
 
     }
-    // VIRTUAL PET SHELTER GAMELOOP
+    // Virtual Pet Shelter Game loop
 
     public void gameLoopShelter() {
         System.out.println("you are in the shelter");
@@ -95,7 +97,7 @@ public class VirtualPetApplication {
     VirtualPetShelter petShelter = new VirtualPetShelter(); // constructor
         boolean quitGame = false;
         while (!quitGame) {
-            System.out.println("what do you want to do? 1: Add a Pet to the Shelter 2: Feed all pets 3: Water all pets 4: Play with all pets");
+            System.out.println("what do you want to do? 1: Add a Pet to the Shelter 2: Feed all pets 3: Water all pets 4: Play with all pets 5: Remove a deceased pet 6: Adopt a pet");
             int prompt = input.nextInt();
             input.nextLine();
 
@@ -125,13 +127,22 @@ public class VirtualPetApplication {
                 petShelter.shelterPopulation();
                 petShelter.tickAll();
 
+            } else if (prompt == 5) {
+                System.out.println("please type the name of the pet you need to bury:");
+                String name = input.nextLine();
+                petShelter.removePet(name);
+
+            } else if (prompt == 6) {
+                System.out.println("please type the name of the pet you wish to adopt:");
+                String name = input.nextLine();
+                petShelter.adoptPet(name);
+                
             } else {
                 quitGame = true;
             }
 
 
         }
-
 
     }
 

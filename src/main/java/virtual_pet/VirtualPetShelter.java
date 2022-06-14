@@ -24,8 +24,8 @@ public class VirtualPetShelter {
     }
 
     public String getAllNames() {
-        for (VirtualPet allPets : shelterList) {
-            return allPets.getPetName();
+        for (VirtualPet arrayPet : shelterList) {
+            return arrayPet.getPetName();
         }
         return "empty nest";
     }
@@ -34,50 +34,72 @@ public class VirtualPetShelter {
     // methods: use for loops for feed-all, water-all, play-all
     // keep all the old methods, but call them for VirtualPetShelter mass-actions
 
-    //add a pet
+    // Add a pet
     public void addPetToShelter(String name) {
-        shelterList.add(new VirtualPet(name, 0, 0, 0, true));
+        VirtualPet petToAdd = new VirtualPet(name, 0, 0, 0, true);
+        shelterList.add(petToAdd);
+
     }
-    //remove a pet
-    public void adoptAPet () {
-        shelterList.remove(getAllNames()); // fix this
+    // Remove a pet
+    public void removePet(String remove) {
+        for (VirtualPet arrayPet : shelterList) {
+            String name = arrayPet.getPetName();
+            if (name.equalsIgnoreCase(remove)) {
+                System.out.println("You successfully buried your pet. RIP..");
+                shelterList.remove(arrayPet);
+                break;
+            } else {
+                System.out.println("Pet not found.");
+            }
+        }
+    }
+    // Adopt a pet
+    public void adoptPet(String adopt) {
+        for (VirtualPet arrayPet : shelterList) {
+            String name = arrayPet.getPetName();
+            if (name.equalsIgnoreCase(adopt)) {
+                System.out.println("Your new pet is happy you adopted it!");
+                shelterList.remove(arrayPet);
+                break;
+            } else {
+                System.out.println("Pet not found.");
+            }
+        }
     }
     //shelter population
     public int shelterPopulation() {
         return (shelterList.size());
     }
-    // find by name
-//    public findPetName(String name) {
 
     //feed
     public void feedPets() {
-        for (VirtualPet allPets : shelterList) {
-            allPets.feed();
+        for (VirtualPet arrayPet : shelterList) {
+            arrayPet.feed();
         }
     }
     //water
     public void waterPets() {
-        for (VirtualPet allPets : shelterList) {
-            allPets.water();
+        for (VirtualPet arrayPet : shelterList) {
+            arrayPet.water();
         }
     }
     //play
     public void playPets() {
-        for (VirtualPet allPets : shelterList) {
-            allPets.play();
+        for (VirtualPet arrayPet : shelterList) {
+            arrayPet.play();
         }
     }
     //status
     public void showPetsStatus() {
-        for (VirtualPet allPets : shelterList) {
-            allPets.status();
+        for (VirtualPet arrayPet : shelterList) {
+            arrayPet.status();
         }
     }
 
     //Tick
     public void tickAll() {
-        for (VirtualPet allPets : shelterList) {
-            allPets.tick();
+        for (VirtualPet arrayPet : shelterList) {
+            arrayPet.tick();
         }
     }
 

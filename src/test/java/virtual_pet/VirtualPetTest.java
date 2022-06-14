@@ -20,35 +20,45 @@ public class VirtualPetTest {
     @Test
     public void shouldReduceHungry() {
         //Assignment
-        VirtualPet underTest = new VirtualPet("test", 0, 0, 0, true);
+        VirtualPet underTest = new VirtualPet("test", 10, 10, 10, true);
+        int initial = underTest.getHungerLvl();
         //Action
         underTest.feed();
         //Assertion
-        assertEquals(- 5, underTest.getHungerLvl());
-        assertEquals(+3, underTest.getBoredomLvl());
-    }
+        int testLvl = underTest.getHungerLvl();
+            assertTrue(initial > testLvl);
+            assertEquals(5, underTest.getHungerLvl());
+            assertEquals(13, underTest.getBoredomLvl());
+        }
+
 
     @Test
     public void shouldReduceThirstyIncreaseBored() {
         //Assignment
-        VirtualPet underTest = new VirtualPet("test", 0, 0, 0, true);
+        VirtualPet underTest = new VirtualPet("test", 10, 10, 10, true);
+        int initial = underTest.getThirstLvl();
         //Action
         underTest.water();
         //Assertion
-        assertEquals(- 5, underTest.getThirstLvl());
-        assertEquals(+3, underTest.getBoredomLvl());
+        int testLvl = underTest.getThirstLvl();
+        assertTrue(initial > testLvl);
+        assertEquals(5, underTest.getThirstLvl());
+        assertEquals(13, underTest.getBoredomLvl());
     }
 
     @Test
     public void shouldReduceBoredomIncreaseHungryThirsty() {
         //Assignment
-        VirtualPet underTest = new VirtualPet("test", 0, 0, 0, true);
+        VirtualPet underTest = new VirtualPet("test", 10, 10, 10, true);
+        int initial = underTest.getBoredomLvl();
         //Action
         underTest.play();
         //Assertion
-        assertEquals(- 5, underTest.getBoredomLvl());
-        assertEquals(+4, underTest.getHungerLvl());
-        assertEquals(+4, underTest.getThirstLvl());
+        int testLvl = underTest.getBoredomLvl();
+        assertTrue(initial > testLvl);
+        assertEquals(5, underTest.getBoredomLvl());
+        assertEquals(14, underTest.getHungerLvl());
+        assertEquals(14, underTest.getThirstLvl());
     }
 
     @Test
@@ -79,12 +89,37 @@ public class VirtualPetTest {
     public void petIsAdmittedToVirtualPetShelter() {
         VirtualPetShelter underTest = new VirtualPetShelter();
         VirtualPet TestPet = new VirtualPet("test", 0,0,0,true);
-        underTest.addPetToShelter(TestPet);
-        assertEquals(4, underTest.shelterPopulation());
+        underTest.addPetToShelter("test");
+        assertEquals(1, underTest.shelterPopulation());
         assertTrue(underTest.getPetShelter().add(new VirtualPet("test", 0,0,0, true)));
     }
 
+    @Test
+    public void allFeed() {
+        VirtualPetShelter underTest = new VirtualPetShelter();
+        underTest.addPetToShelter("test");
+        underTest.feedPets();
+        assertEquals(0, underTest.getPetShelter().get(0).getHungerLvl());
 
+    }
+
+    @Test
+    public void allWater() {
+        VirtualPetShelter underTest = new VirtualPetShelter();
+        underTest.addPetToShelter("test");
+        underTest.waterPets();
+        assertEquals(0, underTest.getPetShelter().get(0).getThirstLvl());
+
+    }
+
+    @Test
+    public void allPlay() {
+        VirtualPetShelter underTest = new VirtualPetShelter();
+        underTest.addPetToShelter("test");
+        underTest.playPets();
+        assertEquals(0, underTest.getPetShelter().get(0).getBoredomLvl());
+
+    }
 }
 
 
