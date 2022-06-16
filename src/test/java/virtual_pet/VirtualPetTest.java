@@ -10,7 +10,8 @@ public class VirtualPetTest {
     @Test
     public void shouldGetName() {
         //Assignment
-        VirtualPet underTest = new VirtualPet("test", 0, 0, 0, true);
+        VirtualPet underTest;
+        underTest = new VirtualPet("test", 0, 0, 0, true);
         //Action
         underTest.petsName();
         //Assertion

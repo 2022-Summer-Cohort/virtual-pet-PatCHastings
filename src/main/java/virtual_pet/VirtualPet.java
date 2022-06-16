@@ -1,20 +1,20 @@
 package virtual_pet;
 
-public class VirtualPet {
+public abstract class VirtualPet {
 
-    private String petName;
-    private int hungerLvl;
-    private int thirstLvl;
-    private int boredomLvl;
-    private boolean isAlive;
+    protected String petName;
+
+    protected String petType;
+    protected int hungerLvl;
+    protected int thirstLvl;
+    protected int boredomLvl;
+    protected boolean isAlive;
+    protected int maintenanceLvl;
 
     //constructor
-    public VirtualPet(String name, int hungry, int thirsty, int bored, boolean isAlive) {
+    public VirtualPet(String name, String type) {
     this.petName = name;
-    this.hungerLvl = hungry;
-    this.thirstLvl = thirsty;
-    this.boredomLvl = bored;
-    this.isAlive = isAlive;
+    this.petType = type;
 
     }
 
@@ -39,28 +39,8 @@ public class VirtualPet {
     }
 
 
-    //setters
-    public void setPetName(String petName) {
-        this.petName = petName;
-    }
 
-    public void setHungerLvl(int hungerLvl) {
-        this.hungerLvl = hungerLvl;
-    }
-
-    public void setThirstLvl(int thirstLvl) {
-        this.thirstLvl = thirstLvl;
-    }
-
-    public void setAlive(boolean alive) {
-        isAlive = alive;
-    }
-
-    public void setBoredomLvl(int boredomLvl) {
-        this.boredomLvl = boredomLvl;
-    }
-
-    //METHODS: actions to feed, water, play w/ pet that will update those stats
+    //METHODS
     public void petsName() {
         System.out.println(petName);
     }
@@ -72,7 +52,6 @@ public class VirtualPet {
             hungerLvl = 0;
         }
     }
-
     public void water() {
         thirstLvl = thirstLvl - 5;
         boredomLvl = boredomLvl +3;
@@ -80,7 +59,6 @@ public class VirtualPet {
             this.thirstLvl = 0;
         }
     }
-
     public void play() {
         boredomLvl = boredomLvl - 5;
         hungerLvl = hungerLvl +4;
@@ -96,18 +74,7 @@ public class VirtualPet {
     }
 
 
-    // Tick methods
-    public void hungryPet(int hungry) {
-        hungerLvl += hungry;
-    }
 
-    public void thirstyPet (int thirsty) {
-        thirstLvl += thirsty;
-    }
-
-    public void boredPet (int bored) {
-        boredomLvl += bored;
-    }
 
     public void status() {
 
@@ -144,7 +111,7 @@ public class VirtualPet {
         hungerLvl = hungerLvl + 2;
         thirstLvl = thirstLvl + 2;
         boredomLvl = boredomLvl + 2;
-        //System.out.println(petName + "'s " + "Hunger: " + hungerLvl + " Thirst: " + thirstLvl + " boredom: " + boredomLvl);
+
     }
 
     //Test method

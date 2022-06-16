@@ -6,21 +6,24 @@ public class VirtualPetApplication {
     private VirtualPetShelter petShelter; //instantiated class
 
     public VirtualPetApplication() {
-        this.petShelter = petShelter;
+
     }
     public static void main(String[] args) {
 
+        // AMOK
+
+
         //VirtualPetShelter
-        Scanner input= new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         // create method to create virtual pet to add to shelter
-        //VirtualPetShelter allIn = new VirtualPetShelter();
+
 
         //Interact with a VirtualPet object in this method
         VirtualPetApplication newGame = new VirtualPetApplication();
         // Call gameLoop method
 
-        System.out.println("Welcome! Enter: " + 1 + " for VirtualPet's Souls. " + 2 + " to enter your VirtualPet's Shelter.");
+        System.out.println("Welcome! Enter: " + 1 + " for VirtualPet's Souls. " + 2 + " to enter your VirtualPet's Shelter: Amok.");
         int gameChoice = input.nextInt();
         input.nextLine();
         if (gameChoice == 1) {
@@ -50,7 +53,7 @@ public class VirtualPetApplication {
         newGame.gameLoop();
 
     }
-    // PET SHELTER GAMELOOP
+    // VirtualPet's Souls gameLoop
 
     public void gameLoop() {
 
@@ -59,7 +62,8 @@ public class VirtualPetApplication {
         //boolean isAlive = true;
         System.out.println("Welcome to VirtualPet's Souls! Enter the name of your new pet:");
         String petName = input.nextLine();
-        VirtualPet pet1 = new VirtualPet(petName, 0, 0, 0, true);
+        VirtualPet pet1 = new OrganicCat(petName, 0, 0, 0, true);
+        VirtualPet pet2 = new OrganicDog(petName, 0, 0, 0, true);
 
 
         while (pet1.getIsAlive()) {
@@ -86,7 +90,7 @@ public class VirtualPetApplication {
         }
 
     }
-    // Virtual Pet Shelter Game loop
+    // Virtual Pet Shelter GameLoop
 
     public void gameLoopShelter() {
         System.out.println("you are in the shelter");
@@ -97,17 +101,42 @@ public class VirtualPetApplication {
     VirtualPetShelter petShelter = new VirtualPetShelter(); // constructor
         boolean quitGame = false;
         while (!quitGame) {
-            System.out.println("what do you want to do? 1: Add a Pet to the Shelter 2: Feed all pets 3: Water all pets 4: Play with all pets 5: Remove a deceased pet 6: Adopt a pet");
+
+            System.out.println("what do you want to do?" +
+                               "\n 1: Add a Pet to the Shelter    2: Feed all organic pets 3: Water all organic pets" +
+                               "\n 4: Play with all Organic pets  5: Remove a deceased pet 6: Adopt a pet");
             int prompt = input.nextInt();
             input.nextLine();
 
             if (prompt == 1) {
-                System.out.println("enter the new pet's name:");
-                String name =input.nextLine();
-                petShelter.addPetToShelter(name);
-                petShelter.showPetsStatus();
-                petShelter.shelterPopulation();
-                petShelter.tickAll();
+                System.out.println("enter the type of pet: 1: Organic Cat 2: Organic Dog 3: Robotic Cat 4: Robotic Dog");
+                int typeChoice = input.nextInt();
+                input.nextLine();
+                if (typeChoice == 1) {
+                    System.out.println("enter the organic cat's name:");
+                    String typeName = input.nextLine();
+                    VirtualPet petTypeAdded = new OrganicCat(typeName, 0, 0, 0, true);
+                    petShelter.addPetToShelter(petTypeAdded);
+                }
+                if (typeChoice == 2) {
+                    System.out.println("enter the organic dog's name:");
+                    String typeName = input.nextLine();
+                    VirtualPet petTypeAdded = new OrganicDog(typeName, 0, 0, 0, true);
+                    petShelter.addPetToShelter(petTypeAdded);
+                }
+                if (typeChoice == 3) {
+                    System.out.println("enter the robotic cat's name:");
+                    String typeName = input.nextLine();
+                    VirtualPet petTypeAdded = new RoboticCat(typeName);
+                    petShelter.addPetToShelter(petTypeAdded);
+                }
+                if (typeChoice == 4) {
+                    System.out.println("enter the robotic dog's name:");
+                    String typeName = input.nextLine();
+                    VirtualPet petTypeAdded = new RoboticDog(typeName);
+                    petShelter.addPetToShelter(petTypeAdded);
+                }
+
 
             } else if (prompt == 2) {
                 petShelter.feedPets();
@@ -136,15 +165,16 @@ public class VirtualPetApplication {
                 System.out.println("please type the name of the pet you wish to adopt:");
                 String name = input.nextLine();
                 petShelter.adoptPet(name);
-                
+
             } else {
                 quitGame = true;
             }
 
-
         }
 
     }
+
+
 
 }
 

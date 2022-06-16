@@ -13,9 +13,6 @@ public class VirtualPetShelter {
     public VirtualPetShelter() {
 
 
-
-
-
     }
 
     //getters
@@ -35,11 +32,12 @@ public class VirtualPetShelter {
     // keep all the old methods, but call them for VirtualPetShelter mass-actions
 
     // Add a pet
-    public void addPetToShelter(String name) {
-        VirtualPet petToAdd = new VirtualPet(name, 0, 0, 0, true);
+    public void addPetToShelter(VirtualPet petToAdd) {
+
         shelterList.add(petToAdd);
 
-    }
+        }
+
     // Remove a pet
     public void removePet(String remove) {
         for (VirtualPet arrayPet : shelterList) {
@@ -77,6 +75,14 @@ public class VirtualPetShelter {
             arrayPet.feed();
         }
     }
+    //feed all organic pets
+    public void feedAllOrganPets() {
+        for (VirtualPet arrayPet : shelterList) {
+            if (arrayPet instanceof OrganicPet) {
+                ((OrganicPet)arrayPet).feedOrganicPet();
+            }
+        }
+    }
     //water
     public void waterPets() {
         for (VirtualPet arrayPet : shelterList) {
@@ -95,7 +101,6 @@ public class VirtualPetShelter {
             arrayPet.status();
         }
     }
-
     //Tick
     public void tickAll() {
         for (VirtualPet arrayPet : shelterList) {
