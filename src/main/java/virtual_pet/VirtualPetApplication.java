@@ -3,25 +3,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class VirtualPetApplication {
-    private VirtualPetShelter petShelter; //instantiated class
+    private VirtualPetShelter petShelter;
 
     public VirtualPetApplication() {
 
     }
     public static void main(String[] args) {
 
-        // AMOK
-
-
-        //VirtualPetShelter
         Scanner input = new Scanner(System.in);
-
-        // create method to create virtual pet to add to shelter
-
-
-        //Interact with a VirtualPet object in this method
         VirtualPetApplication newGame = new VirtualPetApplication();
-        // Call gameLoop method
+
+        // Call gameLoop methods
 
         System.out.println("Welcome! Enter: " + 1 + " for VirtualPet's Souls. " + 2 + " to enter your VirtualPet's Shelter: Amok.");
         int gameChoice = input.nextInt();
@@ -62,8 +54,7 @@ public class VirtualPetApplication {
         //boolean isAlive = true;
         System.out.println("Welcome to VirtualPet's Souls! Enter the name of your new pet:");
         String petName = input.nextLine();
-        VirtualPet pet1 = new OrganicCat(petName, 0, 0, 0, true);
-        VirtualPet pet2 = new OrganicDog(petName, 0, 0, 0, true);
+        VirtualPet pet1 = new OrganicCat(petName, 0, 0, 0, true, 0, true);
 
 
         while (pet1.getIsAlive()) {
@@ -90,7 +81,7 @@ public class VirtualPetApplication {
         }
 
     }
-    // Virtual Pet Shelter GameLoop
+    // Virtual Pet Shelter/Amok GameLoop
 
     public void gameLoopShelter() {
         System.out.println("you are in the shelter");
@@ -104,7 +95,8 @@ public class VirtualPetApplication {
 
             System.out.println("what do you want to do?" +
                                "\n 1: Add a Pet to the Shelter    2: Feed all organic pets 3: Water all organic pets" +
-                               "\n 4: Play with all Organic pets  5: Remove a deceased pet 6: Adopt a pet");
+                               "\n 4: Play with all Organic pets  5: Walk all pets         6: maintenance on robotic pets" +
+                               "\n 7: Clean organic pet cages     8: Remove deceased pet   9: Adopt a pet");
             int prompt = input.nextInt();
             input.nextLine();
 
@@ -115,53 +107,71 @@ public class VirtualPetApplication {
                 if (typeChoice == 1) {
                     System.out.println("enter the organic cat's name:");
                     String typeName = input.nextLine();
-                    VirtualPet petTypeAdded = new OrganicCat(typeName, 0, 0, 0, true);
+                    VirtualPet petTypeAdded = new OrganicCat(typeName, 0, 0, 0, true, 0, true);
                     petShelter.addPetToShelter(petTypeAdded);
                 }
                 if (typeChoice == 2) {
                     System.out.println("enter the organic dog's name:");
                     String typeName = input.nextLine();
-                    VirtualPet petTypeAdded = new OrganicDog(typeName, 0, 0, 0, true);
+                    VirtualPet petTypeAdded = new OrganicDog(typeName, 0, 0, 0, true, 0, true);
                     petShelter.addPetToShelter(petTypeAdded);
                 }
                 if (typeChoice == 3) {
                     System.out.println("enter the robotic cat's name:");
                     String typeName = input.nextLine();
-                    VirtualPet petTypeAdded = new RoboticCat(typeName);
+                    VirtualPet petTypeAdded = new RoboticCat(typeName, 0);
                     petShelter.addPetToShelter(petTypeAdded);
                 }
                 if (typeChoice == 4) {
                     System.out.println("enter the robotic dog's name:");
                     String typeName = input.nextLine();
-                    VirtualPet petTypeAdded = new RoboticDog(typeName);
+                    VirtualPet petTypeAdded = new RoboticDog(typeName, 0);
                     petShelter.addPetToShelter(petTypeAdded);
                 }
 
 
             } else if (prompt == 2) {
-                petShelter.feedPets();
+                petShelter.feedAllOrganicPets();
                 petShelter.showPetsStatus();
                 petShelter.shelterPopulation();
                 petShelter.tickAll();
 
             } else if (prompt == 3) {
-                petShelter.waterPets();
+                petShelter.waterAllOrganicPets();
                 petShelter.showPetsStatus();
                 petShelter.shelterPopulation();
                 petShelter.tickAll();
 
             } else if (prompt == 4) {
-                petShelter.playPets();
+                petShelter.playAllOrganicPets();
                 petShelter.showPetsStatus();
                 petShelter.shelterPopulation();
                 petShelter.tickAll();
 
             } else if (prompt == 5) {
+                petShelter.walkAllPets();
+                petShelter.showPetsStatus();
+                petShelter.shelterPopulation();
+                petShelter.tickAll();
+
+            } else if (prompt == 6) {
+                petShelter.maintenanceOnAllRoboticPets();
+                petShelter.showPetsStatus();
+                petShelter.shelterPopulation();
+                petShelter.tickAll();
+
+            } else if (prompt == 7) {
+                petShelter.cleanAllOrganicPetCages();
+                petShelter.showPetsStatus();
+                petShelter.shelterPopulation();
+                petShelter.tickAll();
+
+            } else if (prompt == 8) {
                 System.out.println("please type the name of the pet you need to bury:");
                 String name = input.nextLine();
                 petShelter.removePet(name);
 
-            } else if (prompt == 6) {
+            } else if (prompt == 9) {
                 System.out.println("please type the name of the pet you wish to adopt:");
                 String name = input.nextLine();
                 petShelter.adoptPet(name);

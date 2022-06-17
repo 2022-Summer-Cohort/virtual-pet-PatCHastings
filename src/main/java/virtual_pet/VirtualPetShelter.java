@@ -12,7 +12,6 @@ public class VirtualPetShelter {
     //Constructor
     public VirtualPetShelter() {
 
-
     }
 
     //getters
@@ -26,10 +25,6 @@ public class VirtualPetShelter {
         }
         return "empty nest";
     }
-
-
-    // methods: use for loops for feed-all, water-all, play-all
-    // keep all the old methods, but call them for VirtualPetShelter mass-actions
 
     // Add a pet
     public void addPetToShelter(VirtualPet petToAdd) {
@@ -75,14 +70,56 @@ public class VirtualPetShelter {
             arrayPet.feed();
         }
     }
-    //feed all organic pets
-    public void feedAllOrganPets() {
+    //amok methods
+    public void feedAllOrganicPets() {
         for (VirtualPet arrayPet : shelterList) {
-            if (arrayPet instanceof OrganicPet) {
-                ((OrganicPet)arrayPet).feedOrganicPet();
+            if (arrayPet.petType.equals("organic")) {
+                arrayPet.feedOrganicPet();
             }
         }
     }
+    public void waterAllOrganicPets() {
+        for (VirtualPet arrayPet : shelterList) {
+            if (arrayPet.petType.equals("organic")) {
+                arrayPet.waterOrganicPet();
+            }
+        }
+    }
+    public void playAllOrganicPets() {
+        for (VirtualPet arrayPet : shelterList) {
+            if (arrayPet.petType.equals("organic")) {
+                arrayPet.playOrganicPet();
+            }
+        }
+    }
+    public void walkAllPets() {
+        for (VirtualPet arrayPet : shelterList) {
+            if (arrayPet.petType.equals("robot")) {
+                arrayPet.maintenanceGoesUp();
+            }
+        }
+        for (VirtualPet arrayPet : shelterList) {
+            if (arrayPet.petType.equals("organic")) {
+                arrayPet.refuseGoesDown();
+            }
+        }
+    }
+    public void maintenanceOnAllRoboticPets() {
+        for (VirtualPet arrayPet : shelterList) {
+            if (arrayPet.petType.equals("robot")) {
+                arrayPet.maintenanceOnRobot();
+            }
+        }
+    }
+    public void cleanAllOrganicPetCages() {
+        for (VirtualPet arrayPet : shelterList) {
+            if (arrayPet.petType.equals("organic")) {
+                arrayPet.cleanAllCages();
+            }
+        }
+    }
+
+
     //water
     public void waterPets() {
         for (VirtualPet arrayPet : shelterList) {
@@ -107,6 +144,8 @@ public class VirtualPetShelter {
             arrayPet.tick();
         }
     }
+
+
 
 
 
