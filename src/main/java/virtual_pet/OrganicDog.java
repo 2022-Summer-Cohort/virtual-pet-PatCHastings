@@ -13,7 +13,6 @@ protected int cageDirtiness;
         this.isAlive = isAlive;
         this.refuseLvl = refuseLvl;
         this.cleanCage = cleanCage;
-
     }
 
     public int getCageDirtiness() {
@@ -23,8 +22,4 @@ protected int cageDirtiness;
     public int cleanDogCage() {
         return cageDirtiness = 0;
     }
-
-
-
-
 }

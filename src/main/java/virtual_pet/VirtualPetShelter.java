@@ -4,17 +4,12 @@ import java.util.ArrayList;
 
 public class VirtualPetShelter {
 
-
-    //instance variables
     ArrayList<VirtualPet> shelterList = new ArrayList<>();
 
-
-    //Constructor
     public VirtualPetShelter() {
 
     }
 
-    //getters
     public ArrayList<VirtualPet> getPetShelter() {
         return shelterList;
     }
@@ -26,14 +21,10 @@ public class VirtualPetShelter {
         return "empty nest";
     }
 
-    // Add a pet
     public void addPetToShelter(VirtualPet petToAdd) {
-
         shelterList.add(petToAdd);
-
         }
 
-    // Remove a pet
     public void removePet(String remove) {
         for (VirtualPet arrayPet : shelterList) {
             String name = arrayPet.getPetName();
@@ -46,7 +37,7 @@ public class VirtualPetShelter {
             }
         }
     }
-    // Adopt a pet
+
     public void adoptPet(String adopt) {
         for (VirtualPet arrayPet : shelterList) {
             String name = arrayPet.getPetName();
@@ -59,12 +50,11 @@ public class VirtualPetShelter {
             }
         }
     }
-    //shelter population
+
     public int shelterPopulation() {
         return (shelterList.size());
     }
 
-    //feed
     public void feedPets() {
         for (VirtualPet arrayPet : shelterList) {
             arrayPet.feed();
@@ -120,7 +110,7 @@ public class VirtualPetShelter {
     }
 
 
-    //water
+    //petShelter methods
     public void waterPets() {
         for (VirtualPet arrayPet : shelterList) {
             arrayPet.water();

@@ -9,5 +9,4 @@ public class RoboticCat extends VirtualPet {
 
 
     }
-
 }

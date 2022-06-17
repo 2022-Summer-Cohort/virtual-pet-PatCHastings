@@ -13,7 +13,6 @@ public class VirtualPetApplication {
         Scanner input = new Scanner(System.in);
         VirtualPetApplication newGame = new VirtualPetApplication();
 
-
         System.out.println("Welcome! Enter: " + 1 + " for VirtualPet's Souls. " + 2 + " to enter your VirtualPet's Shelter: Amok.");
         int gameChoice = input.nextInt();
         input.nextLine();
@@ -45,7 +44,6 @@ public class VirtualPetApplication {
 
     }
     // VirtualPet's Souls gameLoop
-
     public void gameLoop() {
 
         Scanner input = new Scanner(System.in);
@@ -76,17 +74,12 @@ public class VirtualPetApplication {
             else {
                 boolean isAlive = false;
             }
-
         }
-
     }
     // Virtual Pet Shelter/Amok GameLoop
-
     public void gameLoopShelter() {
         System.out.println("you are in the shelter");
-
         Scanner input = new Scanner(System.in);
-
 
     VirtualPetShelter petShelter = new VirtualPetShelter(); // constructor
         boolean quitGame = false;
@@ -127,7 +120,6 @@ public class VirtualPetApplication {
                     VirtualPet petTypeAdded = new RoboticDog(typeName, 0);
                     petShelter.addPetToShelter(petTypeAdded);
                 }
-
 
             } else if (prompt == 2) {
                 petShelter.feedAllOrganicPets();
@@ -178,13 +170,8 @@ public class VirtualPetApplication {
             } else {
                 quitGame = true;
             }
-
         }
-
     }
-
-
-
 }
 
 
