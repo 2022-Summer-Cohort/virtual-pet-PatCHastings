@@ -13,7 +13,6 @@ public class VirtualPetApplication {
         Scanner input = new Scanner(System.in);
         VirtualPetApplication newGame = new VirtualPetApplication();
 
-        // Call gameLoop methods
 
         System.out.println("Welcome! Enter: " + 1 + " for VirtualPet's Souls. " + 2 + " to enter your VirtualPet's Shelter: Amok.");
         int gameChoice = input.nextInt();

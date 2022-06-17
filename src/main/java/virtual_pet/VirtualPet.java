@@ -44,7 +44,6 @@ public abstract class VirtualPet {
     public String getPetType() {
         return petType;
     }
-
     public int getMaintenanceLvl() {
         return maintenanceLvl;
     }
@@ -170,7 +169,7 @@ public abstract class VirtualPet {
     }
 
     public void maintenanceGoesUp() {
-        maintenanceLvl += maintenanceLvl;
+        maintenanceLvl = maintenanceLvl + 1;
     }
 
     public void refuseGoesDown() {
