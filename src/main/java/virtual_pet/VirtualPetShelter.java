@@ -71,7 +71,7 @@ public class VirtualPetShelter {
         }
     public void playAllOrganicPets() {
         for (VirtualPet arrayPet : shelterList) {
-            if (arrayPet.petType.equals("organicat")) {
+            if (arrayPet.petType.equals("organicat") || arrayPet.petType.equals("organidog")) {
                 arrayPet.playOrganicPet();
             }
         }
@@ -83,6 +83,7 @@ public class VirtualPetShelter {
             }
             if (arrayPet.petType.equals("organidog")) {
                 arrayPet.boredomLvlGoesDown();
+                arrayPet.cageDirtinessGoesDown();
             }
         }
     }

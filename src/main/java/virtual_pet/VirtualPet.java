@@ -184,9 +184,7 @@ public abstract class VirtualPet {
             this.boredomLvl = 0;
         }
     }
-//    public void cleanAllCages() {
-//        cageDirtiness = 0;
-//    }
+
     public void maintenanceOnRobot() {
         maintenanceLvl = 0;
     }
@@ -206,6 +204,9 @@ public abstract class VirtualPet {
 
     public void boredomLvlGoesDown() {
         boredomLvl -= boredomLvl;
+    }
+    public void cageDirtinessGoesDown() {
+        cageDirtiness = cageDirtiness - 2;
     }
 
     public void cleanAllCages() {

@@ -13,7 +13,6 @@ protected String name;
         this.thirstLvl = thirsty;
         this.boredomLvl = bored;
         this.isAlive = isAlive;
-        this.refuseLvl = refuseLvl;
         this.cleanCage = cleanCage;
     }
 
@@ -23,11 +22,6 @@ protected String name;
 
     public int cleanLitterBox() {
         return litterBoxDirtiness = 0;
-    }
-
-
-    public int getCageDirtiness() {
-        return 0;
     }
 
 

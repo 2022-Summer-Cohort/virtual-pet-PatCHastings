@@ -11,7 +11,6 @@ protected int cageDirtiness;
         this.thirstLvl = thirsty;
         this.boredomLvl = bored;
         this.isAlive = isAlive;
-        this.refuseLvl = refuseLvl;
         this.cleanCage = cleanCage;
     }
 
@@ -21,10 +20,6 @@ protected int cageDirtiness;
 
     @Override
     public int cleanDogCages() {
-        return cageDirtiness = 0;
-    }
-
-    public int cleanDogCage() {
         return cageDirtiness = 0;
     }
 
