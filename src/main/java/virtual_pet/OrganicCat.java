@@ -1,12 +1,12 @@
 package virtual_pet;
 
-public class OrganicCat extends VirtualPet {
+public class OrganicCat extends VirtualPet implements Organic {
 
 protected int litterBoxDirtiness;
 protected String name;
 
-    public OrganicCat(String name, int hungry, int thirsty, int bored, boolean isAlive, int refuseLvl, boolean cleanCage) {
-        super(name, "organic");
+    public OrganicCat(String name, int hungry, int thirsty, int bored, boolean isAlive, int litterBoxDirtiness, boolean cleanCage) {
+        super(name, "organicat");
         this.name = name;
         this.litterBoxDirtiness = 0;
         this.hungerLvl = hungry;
@@ -24,5 +24,12 @@ protected String name;
     public int cleanLitterBox() {
         return litterBoxDirtiness = 0;
     }
+
+
+    public int getCageDirtiness() {
+        return 0;
+    }
+
+
 
 }

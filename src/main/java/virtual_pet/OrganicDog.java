@@ -1,11 +1,11 @@
 package virtual_pet;
 
-public class OrganicDog extends VirtualPet {
+public class OrganicDog extends VirtualPet implements OrganicD{
 
 protected int cageDirtiness;
 
-    public OrganicDog(String name, int hungry, int thirsty, int bored, boolean isAlive, int refuseLvl, boolean cleanCage) {
-        super(name, "organic");
+    public OrganicDog(String name, int hungry, int thirsty, int bored, boolean isAlive, int cageDirtiness, boolean cleanCage) {
+        super(name, "organidog");
         this.cageDirtiness = 0;
         this.hungerLvl = hungry;
         this.thirstLvl = thirsty;
@@ -19,7 +19,13 @@ protected int cageDirtiness;
         return cageDirtiness;
     }
 
+    @Override
+    public int cleanDogCages() {
+        return cageDirtiness = 0;
+    }
+
     public int cleanDogCage() {
         return cageDirtiness = 0;
     }
+
 }

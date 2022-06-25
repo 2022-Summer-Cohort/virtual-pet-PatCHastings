@@ -14,12 +14,6 @@ public class VirtualPetShelter {
         return shelterList;
     }
 
-    public String getAllNames() {
-        for (VirtualPet arrayPet : shelterList) {
-            return arrayPet.getPetName();
-        }
-        return "empty nest";
-    }
 
     public void addPetToShelter(VirtualPet petToAdd) {
         shelterList.add(petToAdd);
@@ -63,52 +57,63 @@ public class VirtualPetShelter {
     //amok methods
     public void feedAllOrganicPets() {
         for (VirtualPet arrayPet : shelterList) {
-            if (arrayPet.petType.equals("organic")) {
+            if (arrayPet.petType.equals("organicat") || arrayPet.petType.equals("organidog")) {
                 arrayPet.feedOrganicPet();
             }
         }
     }
     public void waterAllOrganicPets() {
-        for (VirtualPet arrayPet : shelterList) {
-            if (arrayPet.petType.equals("organic")) {
-                arrayPet.waterOrganicPet();
+            for (VirtualPet arrayPet : shelterList) {
+                if (arrayPet.petType.equals("organicat") || arrayPet.petType.equals("organidog")) {
+                    arrayPet.waterOrganicPet();
+                }
             }
         }
-    }
     public void playAllOrganicPets() {
         for (VirtualPet arrayPet : shelterList) {
-            if (arrayPet.petType.equals("organic")) {
+            if (arrayPet.petType.equals("organicat")) {
                 arrayPet.playOrganicPet();
             }
         }
     }
-    public void walkAllPets() {
+    public void walkAllOrganicDogs() {
         for (VirtualPet arrayPet : shelterList) {
-            if (arrayPet.petType.equals("robot")) {
+            if (arrayPet.petType.equals("robodog")) {
                 arrayPet.maintenanceGoesUp();
             }
-        }
-        for (VirtualPet arrayPet : shelterList) {
-            if (arrayPet.petType.equals("organic")) {
-                arrayPet.refuseGoesDown();
+            if (arrayPet.petType.equals("organidog")) {
+                arrayPet.boredomLvlGoesDown();
             }
         }
     }
     public void maintenanceOnAllRoboticPets() {
         for (VirtualPet arrayPet : shelterList) {
-            if (arrayPet.petType.equals("robot")) {
+            if (arrayPet.petType.equals("robocat") || arrayPet.petType.equals("robodog")) {
                 arrayPet.maintenanceOnRobot();
             }
         }
     }
-    public void cleanAllOrganicPetCages() {
+    public void cleanAllOrganicDogCages() {
         for (VirtualPet arrayPet : shelterList) {
-            if (arrayPet.petType.equals("organic")) {
+            if (arrayPet.petType.equals("organidog")) {
                 arrayPet.cleanAllCages();
             }
         }
     }
-
+    public void cleanAllOrganicatLitterboxes() {
+        for (VirtualPet arrayPet : shelterList) {
+            if (arrayPet.petType.equals("organicat")) {
+                arrayPet.cleanAllLitterboxes();
+            }
+        }
+    }
+    public void oilAllRoboticPets() {
+        for (VirtualPet arrayPet : shelterList) {
+            if (arrayPet.petType.equals("robocat") || arrayPet.petType.equals("robodog")) {
+                arrayPet.oilRoboticPets();
+            }
+        }
+    }
 
     //petShelter methods
     public void waterPets() {
@@ -134,9 +139,4 @@ public class VirtualPetShelter {
             arrayPet.tick();
         }
     }
-
-
-
-
-
 }
