@@ -15,14 +15,12 @@ public abstract class VirtualPet {
     protected boolean cleanCage;
     protected int oilLvl;
 
-    //constructor
     public VirtualPet(String name, String type) {
         this.petName = name;
         this.petType = type;
 
     }
 
-    //getter methods
     public int getRefuseLvl() {
         return refuseLvl;
     }
@@ -51,7 +49,6 @@ public abstract class VirtualPet {
         return maintenanceLvl;
     }
 
-    //METHODS
     public void petsName() {
         System.out.println(petName);
     }
@@ -80,12 +77,10 @@ public abstract class VirtualPet {
             this.boredomLvl = 0;
         }
     }
-
     public void isAlive() {
         isAlive = true;
 
     }
-
 
     public void status() {
 
@@ -129,12 +124,8 @@ public abstract class VirtualPet {
         if (oilLvl >= 5) {
             System.out.println("Robots need oil!!");
         }
-
-
-
     }
 
-    // Tick
     public void tick() {
         if (petType.equals("organicat") || petType.equals("organidog")) {
             hungerLvl = hungerLvl + 2;

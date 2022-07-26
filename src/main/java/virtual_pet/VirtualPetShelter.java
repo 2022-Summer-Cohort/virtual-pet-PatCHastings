@@ -116,25 +116,24 @@ public class VirtualPetShelter {
         }
     }
 
-    //petShelter methods
     public void waterPets() {
         for (VirtualPet arrayPet : shelterList) {
             arrayPet.water();
         }
     }
-    //play
+
     public void playPets() {
         for (VirtualPet arrayPet : shelterList) {
             arrayPet.play();
         }
     }
-    //status
+
     public void showPetsStatus() {
         for (VirtualPet arrayPet : shelterList) {
             arrayPet.status();
         }
     }
-    //Tick
+
     public void tickAll() {
         for (VirtualPet arrayPet : shelterList) {
             arrayPet.tick();

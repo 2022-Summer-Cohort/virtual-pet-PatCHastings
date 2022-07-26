@@ -47,29 +47,31 @@ public class VirtualPetApplication {
     public void gameLoop() {
 
         Scanner input = new Scanner(System.in);
-
-        //boolean isAlive = true;
         System.out.println("Welcome to VirtualPet's Souls! Enter the name of your new pet:");
         String petName = input.nextLine();
         VirtualPet pet1 = new OrganicCat(petName, 0, 0, 0, true, 0, true);
 
 
         while (pet1.getIsAlive()) {
-            System.out.println("What do you want to do with " + petName + "?" + " (type: feed | water | play)");
-            String prompt = input.nextLine();
+            System.out.println("What do you want to do with " + petName + "?" + " 1: feed  2: water  3: play  4: exit)");
+            int prompt = input.nextInt();
+            input.nextLine();
 
-            if (prompt.equalsIgnoreCase("feed")) {
+            if (prompt == 1) {
                 pet1.feed();
                 pet1.tick();
                 pet1.status();
-            } else if (prompt.equalsIgnoreCase("water")) {
+            } else if (prompt == 2) {
                 pet1.water();
                 pet1.status();
                 pet1.tick();
-            } else if (prompt.equalsIgnoreCase("play")) {
+            } else if (prompt == 3) {
                 pet1.play();
                 pet1.status();
                 pet1.tick();
+            } else if (prompt == 4) {
+                break;
+
             }
             else {
                 boolean isAlive = false;
